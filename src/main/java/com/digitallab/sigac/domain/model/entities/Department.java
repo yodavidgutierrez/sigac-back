@@ -17,5 +17,4 @@ public class Department {
     private Integer id;
     @Column(nullable = false)
     private String name;
-
 }
