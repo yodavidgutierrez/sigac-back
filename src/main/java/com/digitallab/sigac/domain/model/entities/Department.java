@@ -12,7 +12,6 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 public class Department {
-
     @Id
     @GeneratedValue
     private Integer id;
