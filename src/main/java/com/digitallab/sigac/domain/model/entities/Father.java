@@ -1,4 +1,4 @@
 package com.digitallab.sigac.domain.model.entities;
 
-public class Father {
+public class Father extends Person{
 }
