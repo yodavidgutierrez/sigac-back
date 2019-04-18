@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@EqualsAndHashCode(of = {"idPerson"} , callSuper = false)
+@EqualsAndHashCode(of = {"idPerson"})
 @Data
 @NoArgsConstructor
 public class Person extends BaseEntity {
@@ -28,10 +28,27 @@ public class Person extends BaseEntity {
     private String secondName;
     private Date birthDate;
     private Integer stratum;
+    private Integer sisben;
+    @Column(unique = true)
+    private String email;
     @Enumerated(EnumType.STRING)
     private Genre genre;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idmunipio_id", referencedColumnName = "id")
     private Municipality municipality;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(referencedColumnName = "id")
+    private TypeDisability typeDisability;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(referencedColumnName = "id")
+    private ExceptionalAbility exceptionalAbility;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(referencedColumnName = "id")
+    private EthnicGroup ethnicGroup;
+
 
 }
