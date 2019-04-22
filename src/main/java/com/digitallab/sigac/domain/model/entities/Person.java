@@ -13,6 +13,9 @@ import java.sql.Date;
 @EqualsAndHashCode(of = {"idPerson"})
 @Data
 @NoArgsConstructor
+@Inheritance(
+        strategy = InheritanceType.JOINED
+)
 public class Person extends BaseEntity {
 
     @Id

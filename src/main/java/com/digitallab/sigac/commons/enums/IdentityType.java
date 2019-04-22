@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 public enum IdentityType {
 
     CC(0, "Cédula de Ciudadanía."),
@@ -14,4 +13,8 @@ public enum IdentityType {
     private final Integer code;
     private final String value;
 
+    IdentityType(Integer code, String value) {
+        this.code = code;
+        this.value = value;
+    }
 }
