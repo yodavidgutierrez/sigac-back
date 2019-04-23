@@ -14,11 +14,10 @@ public class PopulationVictimConflict {
     @Column(nullable = false)
     private String addresPerson;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(referencedColumnName = "id")
+    @JoinColumns({
+            @JoinColumn(referencedColumnName = "id"),
+            @JoinColumn(referencedColumnName = "department")})
     private Municipality municipality;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn( referencedColumnName = "id")
-    private Department department;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( referencedColumnName = "id")
     private TypeVictimConflict typeVictimConflict;

@@ -7,8 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class ExceptionalAbility {
+
     @Id
-    @GeneratedValue
     private Integer id;
     @Column(nullable = false)
     private String ability;

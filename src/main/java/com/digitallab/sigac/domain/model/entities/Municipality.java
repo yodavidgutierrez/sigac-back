@@ -10,13 +10,16 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Municipality {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+    @EmbeddedId
+    private MunicipalityId id;
     @Column(nullable = false)
     private String name;
+
     @JoinColumn(name = "`department_id`", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Department department;
+
+
+
 
 }

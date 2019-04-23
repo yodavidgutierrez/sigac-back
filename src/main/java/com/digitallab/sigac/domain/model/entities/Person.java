@@ -2,11 +2,16 @@ package com.digitallab.sigac.domain.model.entities;
 
 import com.digitallab.sigac.commons.enums.Genre;
 import com.digitallab.sigac.commons.enums.IdentityType;
+import com.digitallab.sigac.domain.model.entities.base.audit.AuditBaseEntity;
+import com.digitallab.sigac.domain.model.entities.base.audit.AuditListener;
+import com.digitallab.sigac.domain.model.entities.base.audit.Auditable;
+import com.digitallab.sigac.domain.model.entities.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
@@ -16,11 +21,10 @@ import java.sql.Date;
 @Inheritance(
         strategy = InheritanceType.JOINED
 )
-public class Person extends BaseEntity {
+@EntityListeners(AuditListener.class)
+public class Person extends BaseEntity implements Auditable, Serializable {
 
-    @Id
-    @GeneratedValue
-    private Long idPerson;
+
     @Column(unique = true, nullable = false)
     private Long documentNumber;
     @Enumerated(EnumType.ORDINAL)
@@ -38,12 +42,14 @@ public class Person extends BaseEntity {
     private Genre genre;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idmunipio_id", referencedColumnName = "id")
+    @JoinColumns({
+            @JoinColumn(referencedColumnName = "id"),
+            @JoinColumn(referencedColumnName = "department")})
     private Municipality municipality;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName = "id")
-    private TypeDisability typeDisability;
+    private DisabilityType disabilityType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName = "id")
@@ -53,5 +59,16 @@ public class Person extends BaseEntity {
     @JoinColumn(referencedColumnName = "id")
     private EthnicGroup ethnicGroup;
 
+    private AuditBaseEntity auditBaseEntity;
 
+
+    @Override
+    public void setAudit(AuditBaseEntity auditBaseEntity) {
+        this.auditBaseEntity = auditBaseEntity;
+    }
+
+    @Override
+    public AuditBaseEntity getAudit() {
+        return auditBaseEntity;
+    }
 }

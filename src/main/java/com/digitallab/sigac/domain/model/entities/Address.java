@@ -1,24 +1,23 @@
 package com.digitallab.sigac.domain.model.entities;
 
+import com.digitallab.sigac.domain.model.entities.base.BaseEntity;
+
 import javax.persistence.*;
 @Entity
-public class Address{
+public class Address extends BaseEntity {
 
-    @Id
-    private Long idPerson;
     @OneToOne
     @JoinColumn(name = "id_person")
     @MapsId
     private Person person;
     @Column(nullable = false)
     private String addresPerson;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumns({
+            @JoinColumn(referencedColumnName = "id"),
+            @JoinColumn(referencedColumnName = "department")})
     private Municipality municipality;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn( referencedColumnName = "id")
-    private Department department;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn( referencedColumnName = "id")
     private Zone zone;
 

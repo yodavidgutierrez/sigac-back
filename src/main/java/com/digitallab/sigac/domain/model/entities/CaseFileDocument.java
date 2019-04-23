@@ -1,12 +1,13 @@
 package com.digitallab.sigac.domain.model.entities;
 
+import com.digitallab.sigac.domain.model.entities.base.BaseEntity;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class CaseFileDocument {
-    @Id
-    private Long idPerson;
+public class CaseFileDocument extends BaseEntity {
+
     @OneToOne
     @JoinColumn(name = "id_person")
     @MapsId
@@ -14,9 +15,9 @@ public class CaseFileDocument {
     @Column
     private LocalDate caseFileDate;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(referencedColumnName = "id")
+    @JoinColumns({
+            @JoinColumn(referencedColumnName = "id"),
+            @JoinColumn(referencedColumnName = "department")})
     private Municipality municipality;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn( referencedColumnName = "id")
-    private Department department;
+
 }
