@@ -20,7 +20,7 @@ public class AuditBaseEntity {
     private LocalDateTime updateTime;
     @Column(nullable = false)
     private LocalDateTime creationTime;
-    @Column(nullable = false)
-    private String userName;
+    /*@Column(nullable = false)
+    private String userName;*/
 
 }

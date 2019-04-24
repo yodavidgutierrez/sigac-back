@@ -2,11 +2,13 @@ package com.digitallab.sigac.domain.model.entities;
 
 import com.digitallab.sigac.domain.model.entities.base.audit.AuditBaseEntity;
 import com.digitallab.sigac.domain.model.entities.base.audit.Auditable;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@EqualsAndHashCode(callSuper = false)
 public class Phone implements Auditable, Serializable {
 
     @Id

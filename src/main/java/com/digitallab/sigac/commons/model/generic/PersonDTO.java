@@ -1,21 +1,20 @@
 package com.digitallab.sigac.commons.model.generic;
 
 import com.digitallab.sigac.commons.enums.Genre;
-import com.digitallab.sigac.commons.enums.IdentityType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
-@EqualsAndHashCode(of = {"idPerson"}, callSuper = false)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class PersonDTO implements Serializable {
 
     private Long documentNumber;
-    private IdentityType idType;
+    private Integer idType;
     private String firstLastName;
     private String secondLastName;
     private String firstName;
