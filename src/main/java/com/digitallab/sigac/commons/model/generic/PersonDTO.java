@@ -14,7 +14,6 @@ import java.sql.Date;
 @Builder
 public class PersonDTO implements Serializable {
 
-    private Long idPerson;
     private Long documentNumber;
     private IdentityType idType;
     private String firstLastName;
@@ -25,5 +24,10 @@ public class PersonDTO implements Serializable {
     private Integer stratum;
     private Genre genre;
     private MunicipalityDTO municipality;
+    private Integer sisben;
+    private String email;
+    private DisabilityTypeDTO disabilityType;
+    private ExceptionalAbilityDTO exceptionalAbility;
+    private EthnicGroupDTO ethnicGroup;
 
 }

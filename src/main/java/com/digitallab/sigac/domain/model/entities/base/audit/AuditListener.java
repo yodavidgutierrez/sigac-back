@@ -18,7 +18,7 @@ public class AuditListener {
             auditable.setAudit(audit);
         }
 
-        audit.setActionTime(LocalDateTime.now());
+        audit.setCreationTime(LocalDateTime.now());
         audit.setState(Audit.INSERT);
 
     }
@@ -28,7 +28,7 @@ public class AuditListener {
     public void setUpdateOn(Auditable auditable) {
 
         AuditBaseEntity audit = auditable.getAudit();
-        audit.setActionTime(LocalDateTime.now());
+        audit.setUpdateTime(LocalDateTime.now());
         audit.setState(Audit.UPDATE);
     }
 

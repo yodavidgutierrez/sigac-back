@@ -16,9 +16,10 @@ public class AuditBaseEntity {
     @Column(nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private Audit state;
+
+    private LocalDateTime updateTime;
     @Column(nullable = false)
-    //@Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime actionTime;
+    private LocalDateTime creationTime;
     @Column(nullable = false)
     private String userName;
 

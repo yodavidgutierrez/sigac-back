@@ -15,9 +15,9 @@ public class Municipality {
     @Column(nullable = false)
     private String name;
 
-    @JoinColumn(name = "`department_id`", referencedColumnName = "id")
+    /*@JoinColumn(name = "`department_id`", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Department department;
+    private Department department;*/
 
 
 

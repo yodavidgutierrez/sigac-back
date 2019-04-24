@@ -43,8 +43,8 @@ public class Person extends BaseEntity implements Auditable, Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
-            @JoinColumn(referencedColumnName = "id"),
-            @JoinColumn(referencedColumnName = "department")})
+            @JoinColumn(referencedColumnName = "id", nullable = false),
+            @JoinColumn(referencedColumnName = "department", nullable = false)})
     private Municipality municipality;
 
     @ManyToOne(fetch = FetchType.LAZY)
