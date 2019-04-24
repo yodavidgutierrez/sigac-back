@@ -12,6 +12,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 public class PhoneDTO implements Serializable {
-    private PersonDTO person;
+
+    private Long documentNumber;
     private String phonePerson;
+
 }

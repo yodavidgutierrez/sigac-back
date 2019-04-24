@@ -14,8 +14,6 @@ import java.io.Serializable;
 public class PopulationVictimConflictDTO implements Serializable {
 
     private Long idPerson;
-    private PersonDTO person;
-    private String addresPerson;
     private MunicipalityDTO municipality;
     private TypeVictimConflictDTO typeVictimConflict;
 }
