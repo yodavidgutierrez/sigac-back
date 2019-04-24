@@ -18,5 +18,6 @@ public class Student extends Person {
     private Boolean sonsBeneficiaryFamilyHead;
     private Boolean sonsBeneficiaryVeteranPF;
     private Boolean sonsBeneficiaryNationalHero;
+    private Academic academicState;
 
 }
