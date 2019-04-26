@@ -2,10 +2,10 @@ package com.digitallab.sigac.domain.model.entities;
 
 import com.digitallab.sigac.commons.enums.Genre;
 import com.digitallab.sigac.commons.enums.IdentityType;
+import com.digitallab.sigac.domain.model.entities.base.BaseEntity;
 import com.digitallab.sigac.domain.model.entities.base.audit.AuditBaseEntity;
 import com.digitallab.sigac.domain.model.entities.base.audit.AuditListener;
 import com.digitallab.sigac.domain.model.entities.base.audit.Auditable;
-import com.digitallab.sigac.domain.model.entities.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
