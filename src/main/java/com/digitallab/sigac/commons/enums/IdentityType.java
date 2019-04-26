@@ -1,6 +1,5 @@
 package com.digitallab.sigac.commons.enums;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
