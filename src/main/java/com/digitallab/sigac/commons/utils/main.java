@@ -5,6 +5,7 @@ import com.digitallab.sigac.commons.model.generic.DisabilityTypeDTO;
 import com.digitallab.sigac.commons.model.generic.EthnicGroupDTO;
 import com.digitallab.sigac.commons.model.generic.ExceptionalAbilityDTO;
 import com.digitallab.sigac.commons.model.generic.MunicipalityDTO;
+import com.digitallab.sigac.commons.model.request.InscriptionDTORequest;
 import com.digitallab.sigac.commons.model.request.StudentDTORequest;
 import com.digitallab.sigac.commons.utils.serializable.JSONUtil;
 
@@ -30,6 +31,13 @@ public class main {
 
         System.out.println("JSON: " + JSONUtil.marshal(s));
 
+
+        InscriptionDTORequest i = new InscriptionDTORequest();
+        i.setAcademicSituation("");
+        i.setCanceled(true);
+        i.setInscriptionDate(new Date());
+        i.setComments("");
+        i.setGrade(809);
 
     }
 }
