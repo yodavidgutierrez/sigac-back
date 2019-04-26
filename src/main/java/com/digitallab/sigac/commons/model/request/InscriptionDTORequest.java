@@ -9,7 +9,6 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 @Data
-@Builder
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class InscriptionDTORequest extends InscriptionDTO implements Serializable {

@@ -4,8 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,12 +12,16 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class Inscription implements Serializable {
+
     @Id
+    @GeneratedValue
     private Integer inscriptionNumber;
     private Date inscriptionDate;
     private Date fingeringDate;
     private Integer year;
-    private String grade;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(referencedColumnName = "id")
+    private Courses grade;
     private Boolean canceled;
     private String comments;
     private String privateSector;

@@ -17,7 +17,7 @@ public class InscriptionDTO implements Serializable {
     private Date inscriptionDate;
     private Date fingeringDate;
     private Integer year;
-    private String grade;
+    private CoursesDTO grade;
     private Boolean canceled;
     private String comments;
     private String privateSector;
