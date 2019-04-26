@@ -12,7 +12,7 @@ public class Municipality {
 
     @EmbeddedId
     private MunicipalityId id;
-    @Column(nullable = false)
+
     private String name;
 
     /*@JoinColumn(name = "`department_id`", referencedColumnName = "id")

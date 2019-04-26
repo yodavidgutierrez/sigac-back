@@ -4,9 +4,11 @@ import com.digitallab.sigac.domain.model.entities.Courses;
 import com.digitallab.sigac.repository.courses.CoursesRepository;
 import com.digitallab.sigac.repository.courses.CoursesRepositoryFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CoursesRepositoryFacadeImpl implements CoursesRepositoryFacade {
 
     private final CoursesRepository repository;
@@ -23,11 +25,14 @@ public class CoursesRepositoryFacadeImpl implements CoursesRepositoryFacade {
 
     @Override
     public Courses updateCourse(Courses course) {
-        return repository.save(course);
+        Courses courseFinded = findCourse(course.getCourses());
+        courseFinded.setCourses(course.getCourses());
+        return repository.save(courseFinded);
     }
 
     @Override
-    public Courses removeCourse(Courses course) {
+    public Courses removeCourse(Integer id) {
+        Courses course = findCourse(id);
         repository.delete(course);
         return course;
     }

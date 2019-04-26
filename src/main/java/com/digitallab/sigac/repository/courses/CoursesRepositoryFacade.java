@@ -10,7 +10,7 @@ public interface CoursesRepositoryFacade {
 
     Courses updateCourse(Courses course);
 
-    Courses removeCourse(Courses course);
+    Courses removeCourse(Integer id);
 
     Courses findCourse(Integer course);
 

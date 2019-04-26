@@ -5,8 +5,10 @@ import com.digitallab.sigac.domain.model.entities.Student;
 import com.digitallab.sigac.repository.student.StudentRepository;
 import com.digitallab.sigac.repository.student.StudentRepositoryFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
+import javax.validation.ConstraintViolationException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +25,11 @@ public class StudentRepositoryFacadeImpl implements StudentRepositoryFacade {
 
     @Override
     public Student createStudent(Student student) {
-        return repository.save(student);
+        try {
+            return repository.save(student);
+        } catch (ConstraintViolationException | DataIntegrityViolationException c) {
+            return new Student();
+        }
     }
 
     @Override
