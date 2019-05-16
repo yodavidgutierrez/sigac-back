@@ -37,7 +37,6 @@ public class main {
         i.setCanceled(true);
         i.setInscriptionDate(new Date());
         i.setComments("");
-        i.setGrade(809);
 
     }
 }

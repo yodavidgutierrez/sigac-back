@@ -14,7 +14,9 @@ import java.io.Serializable;
 public class Department implements Serializable {
 
     @Id
+    @Column(name = "`id`")
     private Integer id;
+    @Column(insertable = false, updatable = false)
     private String name;
 
     public Department(Integer id) {
