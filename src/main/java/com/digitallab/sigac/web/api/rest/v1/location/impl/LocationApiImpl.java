@@ -1,5 +1,6 @@
 package com.digitallab.sigac.web.api.rest.v1.location.impl;
 
+import com.digitallab.sigac.commons.model.generic.MunicipalityDTO;
 import com.digitallab.sigac.domain.model.entities.Department;
 import com.digitallab.sigac.domain.model.entities.Municipality;
 import com.digitallab.sigac.service.location.LocationService;
@@ -31,7 +32,7 @@ public class LocationApiImpl implements LocationApi {
 
     @GetMapping("/departments/{depto}/municipality/{municipal}")
     @Override
-    public List<Municipality> findMunicipalitiesById_Department(@PathVariable("municipal") Integer idMunicipal, @PathVariable("depto") Integer idDepart) {
+    public List<MunicipalityDTO> findMunicipalitiesById_Department(@PathVariable("municipal") Integer idMunicipal, @PathVariable("depto") Integer idDepart) {
         return locationService.findMunicipalitiesByIdDepartment(idMunicipal,idDepart);
     }
 }

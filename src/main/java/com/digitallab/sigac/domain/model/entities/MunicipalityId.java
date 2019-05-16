@@ -17,6 +17,7 @@ public class MunicipalityId implements Serializable {
     public MunicipalityId() {
     }
 
+
     private Integer id;
     @JoinColumn(name = "`department`", referencedColumnName = "`id`")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

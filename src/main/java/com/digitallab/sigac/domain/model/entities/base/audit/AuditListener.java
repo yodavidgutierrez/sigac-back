@@ -17,16 +17,13 @@ public class AuditListener {
             audit = new AuditBaseEntity();
             auditable.setAudit(audit);
         }
-
         audit.setCreationTime(LocalDateTime.now());
         audit.setState(Audit.INSERT);
-
     }
 
 
     @PreUpdate
     public void setUpdateOn(Auditable auditable) {
-
         AuditBaseEntity audit = auditable.getAudit();
         audit.setUpdateTime(LocalDateTime.now());
         audit.setState(Audit.UPDATE);
